@@ -5,27 +5,31 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment, Float } from "@react-three/drei";
 import * as THREE from "three";
 
-/** Винтовая спираль из сфер — визуальная метафора спирального переплёта. */
-function Helix() {
+/** Винтовая кривая для построения сплошной трубы-спирали. */
+class HelixCurve extends THREE.Curve<THREE.Vector3> {
+  constructor(
+    private turns = 3.4,
+    private radius = 1.55,
+    private height = 6,
+  ) {
+    super();
+  }
+  getPoint(t: number, target = new THREE.Vector3()) {
+    const angle = t * this.turns * Math.PI * 2;
+    return target.set(
+      Math.cos(angle) * this.radius,
+      (t - 0.5) * this.height,
+      Math.sin(angle) * this.radius,
+    );
+  }
+}
+
+function Spiral() {
   const group = useRef<THREE.Group>(null);
 
-  const beads = useMemo(() => {
-    const count = 34;
-    const turns = 3.2;
-    const radius = 1.55;
-    const height = 5.2;
-    return Array.from({ length: count }, (_, i) => {
-      const t = i / (count - 1);
-      const angle = t * turns * Math.PI * 2;
-      return {
-        position: [
-          Math.cos(angle) * radius,
-          (t - 0.5) * height,
-          Math.sin(angle) * radius,
-        ] as [number, number, number],
-        scale: 0.26 + Math.sin(t * Math.PI) * 0.12,
-      };
-    });
+  const geometry = useMemo(() => {
+    const curve = new HelixCurve();
+    return new THREE.TubeGeometry(curve, 600, 0.17, 32, false);
   }, []);
 
   const reduceMotion =
@@ -34,31 +38,19 @@ function Helix() {
 
   useFrame((_, delta) => {
     if (group.current && !reduceMotion) {
-      group.current.rotation.y += delta * 0.28;
+      group.current.rotation.y += delta * 0.3;
     }
   });
 
   return (
-    <group ref={group} rotation={[0.15, 0, 0.08]}>
-      {beads.map((bead, i) => (
-        <mesh key={i} position={bead.position} scale={bead.scale} castShadow>
-          <sphereGeometry args={[1, 32, 32]} />
-          <meshStandardMaterial
-            color={i % 6 === 0 ? "#6d5cff" : "#1d1d20"}
-            roughness={0.25}
-            metalness={0.55}
-          />
-        </mesh>
-      ))}
-      {/* Центральная ось спирали */}
-      <mesh>
-        <cylinderGeometry args={[0.035, 0.035, 5.6, 16]} />
+    <group ref={group} rotation={[0.12, 0, 0.06]}>
+      <mesh geometry={geometry} castShadow>
         <meshStandardMaterial
           color="#6d5cff"
-          roughness={0.2}
+          roughness={0.22}
           metalness={0.6}
-          emissive="#6d5cff"
-          emissiveIntensity={0.25}
+          emissive="#3a2fb0"
+          emissiveIntensity={0.18}
         />
       </mesh>
     </group>
@@ -68,15 +60,15 @@ function Helix() {
 export default function SpiralScene() {
   return (
     <Canvas
-      camera={{ position: [0, 0, 7.5], fov: 42 }}
+      camera={{ position: [0, 0, 7], fov: 48 }}
       dpr={[1, 2]}
       gl={{ antialias: true, alpha: true }}
     >
       <ambientLight intensity={0.6} />
-      <directionalLight position={[4, 6, 5]} intensity={1.4} />
+      <directionalLight position={[4, 6, 5]} intensity={1.5} />
       <directionalLight position={[-5, -2, -3]} intensity={0.5} color="#8b7dff" />
-      <Float speed={1.4} rotationIntensity={0.25} floatIntensity={0.6}>
-        <Helix />
+      <Float speed={1.3} rotationIntensity={0.2} floatIntensity={0.5}>
+        <Spiral />
       </Float>
       <Environment preset="city" />
     </Canvas>

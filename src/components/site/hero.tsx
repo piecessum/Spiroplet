@@ -7,13 +7,17 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden border-b border-border/60 bg-dots"
+      className="relative -mt-16 overflow-hidden border-b border-border/60 bg-dots"
     >
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
+      {/* Спираль-фон: уходит вправо за край и вверх под шапку. */}
+      <Spiral className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full lg:w-[60%]" />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:py-28">
-        <div className="flex flex-col items-start">
-          <span className="inline-flex items-center rounded-full border border-border bg-background/60 px-3 py-1 text-xs font-medium text-muted-foreground">
+      {/* Градиент для читаемости текста поверх спирали. */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-background via-background/85 to-background/10 lg:via-background/60 lg:to-transparent" />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-4 pt-32 pb-20 sm:px-6 lg:pt-44 lg:pb-28">
+        <div className="flex max-w-xl flex-col items-start">
+          <span className="inline-flex items-center rounded-full border border-border bg-background/60 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
             Единый стандарт переплёта
           </span>
 
@@ -57,10 +61,6 @@ export function Hero() {
               </dd>
             </div>
           </dl>
-        </div>
-
-        <div className="relative h-[360px] w-full sm:h-[460px] lg:h-[540px]">
-          <Spiral className="absolute inset-0" />
         </div>
       </div>
     </section>
