@@ -8,9 +8,9 @@ import * as THREE from "three";
 /** Винтовая кривая для построения сплошной трубы-спирали. */
 class HelixCurve extends THREE.Curve<THREE.Vector3> {
   constructor(
-    private turns = 3.4,
+    private turns = 5,
     private radius = 1.55,
-    private height = 6,
+    private height = 9.5,
   ) {
     super();
   }
@@ -29,7 +29,7 @@ function Spiral() {
 
   const geometry = useMemo(() => {
     const curve = new HelixCurve();
-    return new THREE.TubeGeometry(curve, 600, 0.17, 32, false);
+    return new THREE.TubeGeometry(curve, 900, 0.17, 32, false);
   }, []);
 
   const reduceMotion =
