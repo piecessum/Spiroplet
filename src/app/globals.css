@@ -54,9 +54,9 @@
 
 :root {
   /* Тёплая кремовая бумага. */
-  --background: oklch(0.975 0.012 85);
+  --background: oklch(0.952 0.022 85);
   --foreground: oklch(0.2 0.01 60);
-  --card: oklch(1 0.003 85);
+  --card: oklch(1 0 0);
   --card-foreground: oklch(0.2 0.01 60);
   --popover: oklch(1 0.003 85);
   --popover-foreground: oklch(0.2 0.01 60);
@@ -162,13 +162,40 @@
     text-wrap: balance;
   }
 
-  /* «Лист бумаги» — белый блок с мягкой тенью, как обрывок на блокноте. */
+  /* «Листок бумаги»: белый фон с лёгким освещением сверху-слева,
+     направленная мягкая тень снизу-справа и загнутый уголок. */
   .paper {
-    background: var(--card);
+    position: relative;
+    background: linear-gradient(
+      140deg,
+      oklch(1 0 0) 0%,
+      oklch(0.99 0.003 80) 55%,
+      oklch(0.965 0.012 85) 100%
+    );
     box-shadow:
-      0 1px 0 oklch(0.85 0.01 80 / 0.7),
-      0 2px 4px oklch(0.3 0.02 60 / 0.04),
-      0 14px 36px -18px oklch(0.3 0.02 60 / 0.28);
+      1px 2px 3px oklch(0.2 0.02 60 / 0.05),
+      5px 8px 14px oklch(0.2 0.02 60 / 0.09),
+      14px 22px 32px -6px oklch(0.2 0.02 60 / 0.16),
+      24px 36px 56px -16px oklch(0.2 0.02 60 / 0.22);
+  }
+
+  /* Загнутый правый-нижний уголок (dog-ear). */
+  .paper::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(
+      135deg,
+      transparent 47%,
+      oklch(0.7 0.015 80 / 0.45) 48%,
+      oklch(0.7 0.015 80 / 0.45) 50%,
+      var(--background) 51%
+    );
+    border-bottom-right-radius: inherit;
+    pointer-events: none;
   }
 
   /* Лёгкий случайный наклон — будто листки разбросали по столу. */
@@ -176,16 +203,16 @@
     transition: transform 280ms ease, box-shadow 280ms ease;
   }
   .paper-tilt:nth-child(3n + 1) {
-    transform: rotate(-0.5deg);
+    transform: rotate(-0.7deg);
   }
   .paper-tilt:nth-child(3n + 2) {
-    transform: rotate(0.4deg);
+    transform: rotate(0.6deg);
   }
   .paper-tilt:nth-child(3n + 3) {
-    transform: rotate(-0.2deg);
+    transform: rotate(-0.3deg);
   }
   .paper-tilt:hover {
-    transform: rotate(0deg) translateY(-2px);
+    transform: rotate(0deg) translateY(-3px);
   }
 }
 
