@@ -162,12 +162,30 @@
     text-wrap: balance;
   }
 
-  /* «Лист бумаги» — белый блок с мягкой тенью. */
+  /* «Лист бумаги» — белый блок с мягкой тенью, как обрывок на блокноте. */
   .paper {
     background: var(--card);
     box-shadow:
-      0 1px 0 oklch(0.85 0.01 80 / 0.6),
-      0 8px 24px -12px oklch(0.3 0.02 60 / 0.18);
+      0 1px 0 oklch(0.85 0.01 80 / 0.7),
+      0 2px 4px oklch(0.3 0.02 60 / 0.04),
+      0 14px 36px -18px oklch(0.3 0.02 60 / 0.28);
+  }
+
+  /* Лёгкий случайный наклон — будто листки разбросали по столу. */
+  .paper-tilt {
+    transition: transform 280ms ease, box-shadow 280ms ease;
+  }
+  .paper-tilt:nth-child(3n + 1) {
+    transform: rotate(-0.5deg);
+  }
+  .paper-tilt:nth-child(3n + 2) {
+    transform: rotate(0.4deg);
+  }
+  .paper-tilt:nth-child(3n + 3) {
+    transform: rotate(-0.2deg);
+  }
+  .paper-tilt:hover {
+    transform: rotate(0deg) translateY(-2px);
   }
 }
 

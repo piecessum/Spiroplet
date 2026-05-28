@@ -4,7 +4,7 @@ import { reviews } from "@/lib/content";
 
 export function Reviews() {
   return (
-    <section id="reviews" className="border-y border-border/60">
+    <section id="reviews">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -15,7 +15,7 @@ export function Reviews() {
         {reviews.length > 0 ? (
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {reviews.map((r, i) => (
-              <Card key={i} className="paper border-border/70">
+              <Card key={i} className="paper paper-tilt border-border/70">
                 <CardContent className="pt-6">
                   <Quote className="size-6 text-brand" />
                   <p className="mt-4 text-foreground">{r.text}</p>

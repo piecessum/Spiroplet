@@ -3,7 +3,7 @@ import { marketplaces, about } from "@/lib/content";
 
 export function WhereToBuy() {
   return (
-    <section id="buy" className="border-y border-border/60">
+    <section id="buy">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -21,9 +21,11 @@ export function WhereToBuy() {
               href={m.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group paper flex items-center justify-between rounded-xl border border-border p-6 transition-colors hover:border-foreground/40"
+              className="group paper paper-tilt flex items-center justify-between rounded-xl border border-border p-6 hover:border-foreground/40"
             >
-              <span className="text-xl font-semibold">{m.name}</span>
+              <span className="font-mono text-xl font-semibold tracking-tight">
+                {m.name}
+              </span>
               <ArrowUpRight className="size-5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
             </a>
           ))}

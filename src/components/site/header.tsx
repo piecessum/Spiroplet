@@ -11,7 +11,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full bg-background/70 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <a href="#home" className="flex items-center" aria-label="Спироплёт — на главную">
           <Logo className="h-6 sm:h-7" />
@@ -22,7 +22,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="rounded-md px-3 py-2 font-mono text-sm font-medium tracking-tight text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
             </a>
@@ -59,7 +59,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+              className="rounded-md px-3 py-2.5 font-mono text-sm font-medium tracking-tight text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
             >
               {item.label}
             </a>

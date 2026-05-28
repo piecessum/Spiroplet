@@ -31,11 +31,11 @@ export function Ecosystem() {
         {formats.map((f) => (
           <div
             key={f.label}
-            className="paper flex items-stretch gap-4 rounded-xl border border-border p-6"
+            className="paper paper-tilt flex items-stretch gap-4 rounded-xl border border-border p-6"
           >
             <BindingEdge />
             <div className="flex flex-col justify-center">
-              <span className="text-3xl font-semibold tracking-tight">
+              <span className="font-mono text-3xl font-semibold tracking-tight">
                 {f.label}
               </span>
               <span className="mt-1 font-mono text-sm text-muted-foreground">

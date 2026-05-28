@@ -7,10 +7,11 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative -mt-16 overflow-hidden border-b border-border/60"
+      className="relative -mt-16 overflow-hidden"
     >
-      {/* Спираль-фон: уходит вправо за край и вверх под шапку. */}
-      <Spiral className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full lg:w-[60%]" />
+      {/* Спираль-фон: уходит вправо за край и вверх под шапку,
+          снизу плавно растворяется в бумаге через маску. */}
+      <Spiral className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full [mask-image:linear-gradient(to_bottom,black_55%,transparent_95%)] lg:w-[60%]" />
 
       {/* Градиент для читаемости текста поверх спирали. */}
       <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-r from-background via-background/85 to-background/10 lg:via-background/60 lg:to-transparent" />
