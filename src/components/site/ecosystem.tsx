@@ -31,7 +31,7 @@ export function Ecosystem() {
         {formats.map((f) => (
           <div
             key={f.label}
-            className="flex items-stretch gap-4 rounded-xl border border-border bg-card p-6"
+            className="paper flex items-stretch gap-4 rounded-xl border border-border p-6"
           >
             <BindingEdge />
             <div className="flex flex-col justify-center">
@@ -46,7 +46,7 @@ export function Ecosystem() {
         ))}
       </div>
 
-      <figure className="mt-12 rounded-2xl border border-border bg-muted/40 p-8 sm:p-10">
+      <figure className="paper mt-12 rounded-2xl border border-border p-8 sm:p-10">
         <blockquote className="text-xl font-medium text-balance sm:text-2xl">
           {etymology}
         </blockquote>

@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative -mt-16 overflow-hidden border-b border-border/60 bg-dots"
+      className="relative -mt-16 overflow-hidden border-b border-border/60"
     >
       {/* Спираль-фон: уходит вправо за край и вверх под шапку. */}
       <Spiral className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full lg:w-[60%]" />
@@ -17,7 +17,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 pt-32 pb-20 sm:px-6 lg:pt-44 lg:pb-28">
         <div className="flex max-w-xl flex-col items-start">
-          <span className="inline-flex items-center rounded-full border border-border bg-background/60 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
+          <span className="inline-flex items-center rounded-full border border-border bg-card/80 px-3 py-1 font-mono text-xs font-medium tracking-tight text-muted-foreground backdrop-blur">
             Единый стандарт переплёта
           </span>
 

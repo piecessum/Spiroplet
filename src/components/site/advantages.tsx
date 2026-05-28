@@ -20,7 +20,7 @@ export function Advantages() {
         {advantages.map((item, i) => {
           const Icon = icons[i % icons.length];
           return (
-            <Card key={item.title} className="border-border/70">
+            <Card key={item.title} className="paper border-border/70">
               <CardHeader>
                 <div className="flex size-11 items-center justify-center rounded-lg bg-brand/10 text-brand">
                   <Icon className="size-5" />

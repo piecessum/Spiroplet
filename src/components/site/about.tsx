@@ -11,7 +11,7 @@ export function About() {
       </div>
 
       <div className="mt-12 grid gap-5 lg:grid-cols-2">
-        <div className="rounded-2xl border border-border bg-card p-8">
+        <div className="paper rounded-2xl border border-border p-8">
           <div className="flex size-11 items-center justify-center rounded-lg bg-brand/10 text-brand">
             <Target className="size-5" />
           </div>
@@ -21,7 +21,7 @@ export function About() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-border bg-card p-8">
+        <div className="paper rounded-2xl border border-border p-8">
           <div className="flex size-11 items-center justify-center rounded-lg bg-brand/10 text-brand">
             <Users className="size-5" />
           </div>
