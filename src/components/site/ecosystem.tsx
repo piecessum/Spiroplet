@@ -1,4 +1,5 @@
 import { formats, etymology, spec } from "@/lib/content";
+import { Highlight, renderHighlighted } from "./highlight";
 
 function BindingEdge() {
   // Ряд отверстий — визуальная отсылка к переплёту.
@@ -22,8 +23,9 @@ export function Ecosystem() {
           Экосистема
         </h2>
         <p className="mt-4 text-lg text-muted-foreground text-balance">
-          Единый стандарт отверстий — {spec.holeDiameter} с шагом {spec.holeSpacing} —
-          объединяет популярные форматы в одну систему.
+          <Highlight>Единый стандарт отверстий</Highlight> — {spec.holeDiameter}
+          {" "}с шагом {spec.holeSpacing} — объединяет популярные форматы в одну
+          систему.
         </p>
       </div>
 
@@ -48,7 +50,7 @@ export function Ecosystem() {
 
       <figure className="paper mt-12 rounded-2xl border border-border p-8 sm:p-10">
         <blockquote className="text-xl font-medium text-balance sm:text-2xl">
-          {etymology}
+          {renderHighlighted(etymology)}
         </blockquote>
         <figcaption className="mt-4 text-sm text-muted-foreground">
           Этимология названия

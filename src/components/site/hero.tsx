@@ -1,6 +1,7 @@
 import { buttonVariants } from "@/components/ui/button";
 import { site, spec } from "@/lib/content";
 import { Spiral } from "./spiral";
+import { renderHighlighted } from "./highlight";
 import { cn } from "@/lib/utils";
 
 export function Hero() {
@@ -27,7 +28,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-5 max-w-xl text-lg text-muted-foreground text-balance">
-            {site.description}
+            {renderHighlighted(site.description)}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">

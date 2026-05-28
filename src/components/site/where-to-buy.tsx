@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { marketplaces, about } from "@/lib/content";
+import { renderHighlighted } from "./highlight";
 
 export function WhereToBuy() {
   return (
@@ -32,7 +33,7 @@ export function WhereToBuy() {
         </div>
 
         <p className="mt-8 max-w-2xl text-sm text-muted-foreground">
-          {about.cooperation}
+          {renderHighlighted(about.cooperation)}
         </p>
       </div>
     </section>

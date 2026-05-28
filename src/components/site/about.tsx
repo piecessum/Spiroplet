@@ -1,5 +1,6 @@
 import { Target, Users } from "lucide-react";
 import { about } from "@/lib/content";
+import { renderHighlighted } from "./highlight";
 
 export function About() {
   return (
@@ -17,7 +18,7 @@ export function About() {
           </div>
           <h3 className="mt-4 text-xl font-semibold">Задача</h3>
           <p className="mt-2 text-lg text-muted-foreground text-balance">
-            {about.mission}
+            {renderHighlighted(about.mission)}
           </p>
         </div>
 

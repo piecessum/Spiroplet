@@ -54,7 +54,7 @@
 
 :root {
   /* Тёплая кремовая бумага. */
-  --background: oklch(0.952 0.022 85);
+  --background: oklch(0.975 0.012 85);
   --foreground: oklch(0.2 0.01 60);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.2 0.01 60);
@@ -173,10 +173,10 @@
       oklch(0.965 0.012 85) 100%
     );
     box-shadow:
-      1px 2px 3px oklch(0.2 0.02 60 / 0.05),
-      5px 8px 14px oklch(0.2 0.02 60 / 0.09),
-      14px 22px 32px -6px oklch(0.2 0.02 60 / 0.16),
-      24px 36px 56px -16px oklch(0.2 0.02 60 / 0.22);
+      1px 1px 2px oklch(0.2 0.02 60 / 0.04),
+      3px 5px 8px oklch(0.2 0.02 60 / 0.06),
+      8px 12px 18px -6px oklch(0.2 0.02 60 / 0.09),
+      14px 20px 28px -14px oklch(0.2 0.02 60 / 0.12);
   }
 
   /* Загнутый правый-нижний уголок (dog-ear). */
@@ -213,6 +213,16 @@
   }
   .paper-tilt:hover {
     transform: rotate(0deg) translateY(-3px);
+  }
+
+  /* Маркер-выделитель: жёлтая полоса по нижним ~45% строки. */
+  .highlight {
+    background-image: linear-gradient(
+      transparent 55%,
+      oklch(0.94 0.18 95 / 0.7) 0
+    );
+    padding: 0 0.12em;
+    border-radius: 2px;
   }
 }
 

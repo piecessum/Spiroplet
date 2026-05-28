@@ -1,6 +1,7 @@
 import { Layers, ShieldCheck, RotateCw, Ruler, Replace } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { advantages } from "@/lib/content";
+import { Highlight } from "./highlight";
 
 const icons = [Layers, ShieldCheck, RotateCw, Ruler, Replace];
 
@@ -12,7 +13,8 @@ export function Advantages() {
           Почему спироплётный стандарт
         </h2>
         <p className="mt-4 text-lg text-muted-foreground text-balance">
-          Один формат отверстий — и любые листы и блоки совместимы между собой.
+          <Highlight>Один формат отверстий</Highlight> — и любые листы и блоки
+          совместимы между собой.
         </p>
       </div>
 
