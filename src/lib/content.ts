@@ -204,7 +204,8 @@ export const notes: Note[] = [
     id: "zmh4niitb1",
     title: "Спироплётные пружины из металла",
     category: "Спироплётные крепления",
-    description: "Спироплётные пружины из металла",
+    description:
+      "Набор металлических пружин для надёжного переплёта вместе со спироплётным дыроколом.",
     image:
       "https://static.tildacdn.com/tild3236-6563-4265-b161-323362306165/Frame_64.png",
     published: true,
