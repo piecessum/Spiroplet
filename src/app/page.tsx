@@ -3,6 +3,7 @@ import { Hero } from "@/components/site/hero";
 import { Advantages } from "@/components/site/advantages";
 import { WhereToBuy } from "@/components/site/where-to-buy";
 import { Ecosystem } from "@/components/site/ecosystem";
+import { Notes } from "@/components/site/notes";
 import { Reviews } from "@/components/site/reviews";
 import { About } from "@/components/site/about";
 import { Contacts } from "@/components/site/contacts";
@@ -17,6 +18,7 @@ export default function Home() {
         <Advantages />
         <WhereToBuy />
         <Ecosystem />
+        <Notes />
         <Reviews />
         <About />
         <Contacts />
