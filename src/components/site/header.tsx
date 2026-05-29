@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./logo";
-import { buttonVariants } from "@/components/ui/button";
 import { nav } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -28,12 +27,6 @@ export function Header() {
             </a>
           ))}
         </nav>
-
-        <div className="hidden md:flex">
-          <a href="/#buy" className={cn(buttonVariants({ size: "sm" }))}>
-            Где купить
-          </a>
-        </div>
 
         <button
           type="button"
