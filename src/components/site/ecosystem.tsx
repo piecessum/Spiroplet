@@ -21,7 +21,11 @@ function PaperSheet({ widthMm, heightMm, holes }: Omit<Format, "label">) {
         {Array.from({ length: holes }).map((_, i) => (
           <span
             key={i}
-            className="block size-[3px] rounded-full bg-foreground/40"
+            className="block rounded-full bg-foreground/40"
+            style={{
+              width: `calc(5.5 * var(--ps))`,
+              height: `calc(5.5 * var(--ps))`,
+            }}
           />
         ))}
       </div>
@@ -44,7 +48,7 @@ export function Ecosystem() {
       </div>
 
       <div
-        className="mt-12 flex items-end justify-center gap-4 [--ps:0.46px] sm:gap-10 sm:[--ps:0.72px] lg:gap-14 lg:[--ps:0.9px]"
+        className="mt-14 flex items-end justify-center gap-3 [--ps:0.55px] sm:gap-6 sm:[--ps:1px] md:gap-7 md:[--ps:1.2px] lg:gap-8 lg:[--ps:1.7px] xl:[--ps:1.85px]"
       >
         {formats.map((f) => (
           <div key={f.label} className="flex flex-col items-center">
@@ -53,14 +57,14 @@ export function Ecosystem() {
               heightMm={f.heightMm}
               holes={f.holes}
             />
-            <div className="mt-4 text-center">
-              <div className="font-mono text-xl font-semibold tracking-tight sm:text-2xl">
+            <div className="mt-4 text-center sm:mt-6">
+              <div className="font-mono text-xl font-semibold tracking-tight sm:text-2xl lg:text-3xl">
                 {f.label}
               </div>
-              <div className="mt-1 font-mono text-[11px] text-muted-foreground sm:text-xs">
+              <div className="mt-1 font-mono text-[11px] text-muted-foreground sm:text-xs lg:text-sm">
                 {f.widthMm} × {f.heightMm} мм
               </div>
-              <div className="font-mono text-[11px] text-muted-foreground sm:text-xs">
+              <div className="font-mono text-[11px] text-muted-foreground sm:text-xs lg:text-sm">
                 {f.holes} отверстий
               </div>
             </div>
