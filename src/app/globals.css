@@ -315,13 +315,13 @@
   border: 0;
 }
 .prose-paper .shops {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
   margin-block: 1em;
 }
 .prose-paper .shops a {
-  display: inline-block;
+  display: block;
   text-decoration: none;
   transition: transform 200ms ease;
 }
@@ -330,7 +330,7 @@
 }
 .prose-paper .shops img {
   display: block;
-  max-width: 240px;
+  width: 100%;
   height: auto;
   border-radius: 0.5rem;
 }

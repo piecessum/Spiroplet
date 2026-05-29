@@ -5,18 +5,17 @@ import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
-import { notes } from "@/lib/content";
-import { noteBodies } from "@/lib/notes-bodies";
+import { getArticleById, getPublishedArticles } from "@/lib/articles";
 
 type Params = { params: Promise<{ id: string }> };
 
 export function generateStaticParams() {
-  return notes.filter((n) => n.published).map((n) => ({ id: n.id }));
+  return getPublishedArticles().map((n) => ({ id: n.id }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { id } = await params;
-  const note = notes.find((n) => n.id === id);
+  const note = getArticleById(id);
   if (!note) return {};
   return {
     title: `${note.title} — Спироплёт`,
@@ -33,10 +32,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function NotePage({ params }: Params) {
   const { id } = await params;
-  const note = notes.find((n) => n.id === id && n.published);
+  const note = getArticleById(id);
+  if (note && !note.published) notFound();
   if (!note) notFound();
 
-  const body = noteBodies[id] ?? "";
   const dateLabel = new Date(note.date).toLocaleDateString("ru-RU", {
     year: "numeric",
     month: "long",
@@ -49,7 +48,7 @@ export default async function NotePage({ params }: Params) {
       <main className="flex-1">
         <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
           <Link
-            href="/#notes"
+            href="/#ecosystem"
             className="inline-flex items-center gap-1 font-mono text-sm tracking-tight text-muted-foreground transition-colors hover:text-foreground"
           >
             <ChevronLeft className="size-4" />К записям
@@ -81,13 +80,13 @@ export default async function NotePage({ params }: Params) {
           <div className="paper mt-10 rounded-2xl border border-border p-6 sm:p-10">
             <div
               className="prose-paper"
-              dangerouslySetInnerHTML={{ __html: body }}
+              dangerouslySetInnerHTML={{ __html: note.html }}
             />
           </div>
 
           <div className="mt-12">
             <Link
-              href="/#notes"
+              href="/#ecosystem"
               className="inline-flex items-center gap-1 font-mono text-sm tracking-tight text-muted-foreground transition-colors hover:text-foreground"
             >
               <ChevronLeft className="size-4" />Ко всем записям

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { notes, type Note } from "@/lib/content";
+import { getPublishedArticles, type ArticleSummary } from "@/lib/articles";
 
 /** Раскидываем записи по колонкам через i % N — стабильно, без CSS columns. */
 function distribute<T>(items: T[], cols: number): T[][] {
@@ -9,7 +9,7 @@ function distribute<T>(items: T[], cols: number): T[][] {
   return result;
 }
 
-function NoteCard({ note }: { note: Note }) {
+function NoteCard({ note }: { note: ArticleSummary }) {
   return (
     <Link
       href={`/zapiski/${note.id}`}
@@ -39,7 +39,7 @@ function NoteCard({ note }: { note: Note }) {
   );
 }
 
-function ColumnSet({ items, count }: { items: Note[]; count: number }) {
+function ColumnSet({ items, count }: { items: ArticleSummary[]; count: number }) {
   const cols = distribute(items, count);
   return (
     <>
@@ -55,7 +55,7 @@ function ColumnSet({ items, count }: { items: Note[]; count: number }) {
 }
 
 export function Notes() {
-  const visible = notes.filter((n) => n.published);
+  const visible = getPublishedArticles();
 
   return (
     <section
