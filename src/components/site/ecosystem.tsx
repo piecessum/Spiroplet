@@ -33,12 +33,12 @@ function PaperSheet({ widthMm, heightMm, holes }: Omit<Format, "label">) {
   );
 }
 
-export function Ecosystem() {
+export function FormatsAndHoles() {
   return (
-    <section id="ecosystem" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+    <section id="formats" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
       <div className="max-w-2xl">
         <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-          Экосистема
+          Форматы бумаги и отверстия
         </h2>
         <p className="mt-4 text-lg text-muted-foreground text-balance">
           <Highlight>Единый стандарт отверстий</Highlight> — {spec.holeDiameter}
@@ -71,7 +71,18 @@ export function Ecosystem() {
           </div>
         ))}
       </div>
+    </section>
+  );
+}
 
+export function Etymology() {
+  return (
+    <section id="etymology" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+      <div className="max-w-2xl">
+        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          Этимология слова
+        </h2>
+      </div>
       <figure className="paper mt-16 rounded-2xl border border-border p-8 sm:p-10">
         <blockquote className="text-xl font-medium text-balance sm:text-2xl">
           {renderHighlighted(etymology)}

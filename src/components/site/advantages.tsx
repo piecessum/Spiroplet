@@ -7,10 +7,10 @@ const icons = [Layers, ShieldCheck, RotateCw, Ruler, Replace];
 
 export function Advantages() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
+    <section id="advantages" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
       <div className="max-w-2xl">
         <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-          Почему спироплётный стандарт
+          Преимущества спироплета
         </h2>
         <p className="mt-4 text-lg text-muted-foreground text-balance">
           <Highlight>Один формат отверстий</Highlight> — и любые листы и блоки

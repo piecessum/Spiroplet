@@ -15,12 +15,14 @@ export type NavItem = { label: string; href: string };
 
 export const nav: NavItem[] = [
   { label: "Главная", href: "/#home" },
-  { label: "Где купить", href: "/#buy" },
+  { label: "Форматы", href: "/#formats" },
+  { label: "Этимология", href: "/#etymology" },
+  { label: "Преимущества", href: "/#advantages" },
   { label: "Экосистема", href: "/#ecosystem" },
-  { label: "Записи", href: "/#notes" },
   { label: "Отзывы", href: "/#reviews" },
   { label: "О проекте", href: "/#about" },
-  { label: "Контакты", href: "/#contacts" },
+  { label: "Авторские права", href: "/#copyright" },
+  { label: "Где купить", href: "/#buy" },
 ];
 
 export type Advantage = { title: string; description: string };

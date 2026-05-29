@@ -2,11 +2,11 @@ import { Header } from "@/components/site/header";
 import { Hero } from "@/components/site/hero";
 import { Advantages } from "@/components/site/advantages";
 import { WhereToBuy } from "@/components/site/where-to-buy";
-import { Ecosystem } from "@/components/site/ecosystem";
+import { Etymology, FormatsAndHoles } from "@/components/site/ecosystem";
 import { Notes } from "@/components/site/notes";
 import { Reviews } from "@/components/site/reviews";
 import { About } from "@/components/site/about";
-import { Contacts } from "@/components/site/contacts";
+import { Copyright } from "@/components/site/copyright";
 import { Footer } from "@/components/site/footer";
 
 export default function Home() {
@@ -15,13 +15,14 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <FormatsAndHoles />
+        <Etymology />
         <Advantages />
-        <WhereToBuy />
-        <Ecosystem />
         <Notes />
         <Reviews />
         <About />
-        <Contacts />
+        <Copyright />
+        <WhereToBuy />
       </main>
       <Footer />
     </>
