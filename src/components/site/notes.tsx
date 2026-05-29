@@ -19,15 +19,15 @@ export function Notes() {
         </p>
       </div>
 
-      {/* Сетка-листочки: ровная CSS Grid, чтобы все 11 карточек надёжно
-          раскладывались. Лёгкий наклон через paper-tilt оставляет
-          «случайный» вайб без багов масonry. */}
-      <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Masonry-«доска заметок»: CSS columns с block-карточками
+          и явным transform-origin, чтобы балансировщик не «съедал»
+          плитки с поворотом (баг был на inline-block + transform). */}
+      <div className="notes-masonry mt-12 gap-5 [column-count:1] sm:[column-count:2] lg:[column-count:3]">
         {visible.map((note) => (
           <Link
             key={note.id}
             href={`/zapiski/${note.id}`}
-            className="paper paper-tilt group flex flex-col overflow-hidden rounded-xl border border-border/70"
+            className="paper paper-tilt group mb-5 block w-full break-inside-avoid overflow-hidden rounded-xl border border-border/70"
           >
             <div className="relative aspect-[4/3] w-full bg-muted">
               <Image
@@ -38,7 +38,7 @@ export function Notes() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="flex flex-1 flex-col p-5">
+            <div className="p-5">
               <span className="font-mono text-[11px] font-medium tracking-tight text-muted-foreground uppercase">
                 {note.category}
               </span>
