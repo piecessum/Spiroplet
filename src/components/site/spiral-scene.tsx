@@ -46,10 +46,10 @@ function Spiral() {
     <group ref={group} rotation={[0.12, 0, 0.06]}>
       <mesh geometry={geometry} castShadow>
         <meshStandardMaterial
-          color="#6d5cff"
+          color="#f0b429"
           roughness={0.22}
           metalness={0.6}
-          emissive="#3a2fb0"
+          emissive="#8a6500"
           emissiveIntensity={0.18}
         />
       </mesh>
@@ -66,7 +66,7 @@ export default function SpiralScene() {
     >
       <ambientLight intensity={0.6} />
       <directionalLight position={[4, 6, 5]} intensity={1.5} />
-      <directionalLight position={[-5, -2, -3]} intensity={0.5} color="#8b7dff" />
+      <directionalLight position={[-5, -2, -3]} intensity={0.5} color="#ffd76a" />
       <Float speed={1.3} rotationIntensity={0.2} floatIntensity={0.5}>
         <Spiral />
       </Float>

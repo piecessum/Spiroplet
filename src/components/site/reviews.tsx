@@ -1,6 +1,27 @@
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { reviews } from "@/lib/content";
+
+const reviewAccent = "oklch(0.76 0.18 78)";
+
+function RatingStars({ value }: { value: number }) {
+  return (
+    <div
+      className="mt-4 flex items-center gap-1"
+      style={{ color: reviewAccent }}
+      aria-label={`${value} из 5`}
+    >
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star
+          key={i}
+          className="size-4"
+          fill={i < value ? "currentColor" : "none"}
+          aria-hidden
+        />
+      ))}
+    </div>
+  );
+}
 
 export function Reviews() {
   return (
@@ -17,11 +38,12 @@ export function Reviews() {
             {reviews.map((r, i) => (
               <Card key={i} className="paper paper-tilt border-border/70">
                 <CardContent className="pt-6">
-                  <Quote className="size-6 text-brand" />
-                  <p className="mt-4 text-foreground">{r.text}</p>
-                  <p className="mt-4 text-sm font-medium text-muted-foreground">
+                  <Quote className="size-6" style={{ color: reviewAccent }} />
+                  <p className="mt-4 font-mono text-sm font-semibold tracking-tight">
                     {r.name}
                   </p>
+                  <RatingStars value={r.rating} />
+                  <p className="mt-4 text-foreground">{r.text}</p>
                 </CardContent>
               </Card>
             ))}
