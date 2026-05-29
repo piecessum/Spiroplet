@@ -11,7 +11,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-card shadow-[0_10px_28px_-20px_oklch(0.2_0.02_60/0.22)]">
+    <header className="sticky top-0 z-50 w-full bg-background shadow-[0_10px_28px_-20px_oklch(0.2_0.02_60/0.18)]">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <a href="/" className="flex items-center" aria-label="Спироплёт — на главную">
           <Logo className="h-6 sm:h-7" />
