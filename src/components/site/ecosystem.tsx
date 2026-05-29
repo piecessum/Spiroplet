@@ -1,16 +1,30 @@
-import { formats, etymology, spec } from "@/lib/content";
+import { formats, etymology, spec, type Format } from "@/lib/content";
 import { Highlight, renderHighlighted } from "./highlight";
 
-function BindingEdge() {
-  // Ряд отверстий — визуальная отсылка к переплёту.
+/**
+ * Миниатюрный лист в реальной пропорции с отверстиями переплёта по стандарту.
+ * Размер задаётся CSS-переменной --ps (px на 1 мм) — масштабируется адаптивно.
+ */
+function PaperSheet({ widthMm, heightMm, holes }: Omit<Format, "label">) {
   return (
-    <div className="flex flex-col gap-2 py-2" aria-hidden>
-      {Array.from({ length: 9 }).map((_, i) => (
-        <span
-          key={i}
-          className="size-2 rounded-full border border-foreground/40"
-        />
-      ))}
+    <div
+      className="paper paper-tilt relative shrink-0 rounded-sm border border-border/70"
+      style={{
+        width: `calc(${widthMm} * var(--ps))`,
+        height: `calc(${heightMm} * var(--ps))`,
+      }}
+      aria-hidden
+    >
+      {/* Ряд отверстий по длинному краю — flex с justify-between
+          распределяет любое количество дотов ровно по всей высоте. */}
+      <div className="absolute top-[6%] bottom-[6%] left-[4%] flex flex-col items-center justify-between">
+        {Array.from({ length: holes }).map((_, i) => (
+          <span
+            key={i}
+            className="block size-[3px] rounded-full bg-foreground/40"
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -29,30 +43,36 @@ export function Ecosystem() {
         </p>
       </div>
 
-      <div className="mt-12 grid gap-5 sm:grid-cols-3">
+      <div
+        className="mt-12 flex items-end justify-center gap-4 [--ps:0.46px] sm:gap-10 sm:[--ps:0.72px] lg:gap-14 lg:[--ps:0.9px]"
+      >
         {formats.map((f) => (
-          <div
-            key={f.label}
-            className="paper paper-tilt flex items-stretch gap-4 rounded-xl border border-border p-6"
-          >
-            <BindingEdge />
-            <div className="flex flex-col justify-center">
-              <span className="font-mono text-3xl font-semibold tracking-tight">
+          <div key={f.label} className="flex flex-col items-center">
+            <PaperSheet
+              widthMm={f.widthMm}
+              heightMm={f.heightMm}
+              holes={f.holes}
+            />
+            <div className="mt-4 text-center">
+              <div className="font-mono text-xl font-semibold tracking-tight sm:text-2xl">
                 {f.label}
-              </span>
-              <span className="mt-1 font-mono text-sm text-muted-foreground">
-                {f.note}
-              </span>
+              </div>
+              <div className="mt-1 font-mono text-[11px] text-muted-foreground sm:text-xs">
+                {f.widthMm} × {f.heightMm} мм
+              </div>
+              <div className="font-mono text-[11px] text-muted-foreground sm:text-xs">
+                {f.holes} отверстий
+              </div>
             </div>
           </div>
         ))}
       </div>
 
-      <figure className="paper mt-12 rounded-2xl border border-border p-8 sm:p-10">
+      <figure className="paper mt-16 rounded-2xl border border-border p-8 sm:p-10">
         <blockquote className="text-xl font-medium text-balance sm:text-2xl">
           {renderHighlighted(etymology)}
         </blockquote>
-        <figcaption className="mt-4 text-sm text-muted-foreground">
+        <figcaption className="mt-4 font-mono text-sm tracking-tight text-muted-foreground">
           Этимология названия
         </figcaption>
       </figure>

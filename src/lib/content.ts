@@ -47,10 +47,21 @@ export const advantages: Advantage[] = [
   },
 ];
 
-export const formats = [
-  { label: "A4", note: "210 × 297 мм" },
-  { label: "B5", note: "176 × 250 мм" },
-  { label: "A5", note: "148 × 210 мм" },
+/**
+ * Форматы спироплётной экосистемы.
+ * Количество отверстий на длинном крае — строго по стандарту.
+ */
+export type Format = {
+  label: string;
+  widthMm: number;
+  heightMm: number;
+  holes: number;
+};
+
+export const formats: Format[] = [
+  { label: "A4", widthMm: 210, heightMm: 297, holes: 30 },
+  { label: "B5", widthMm: 176, heightMm: 250, holes: 26 },
+  { label: "A5", widthMm: 148, heightMm: 210, holes: 20 },
 ];
 
 export const spec = {
