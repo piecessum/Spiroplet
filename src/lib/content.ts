@@ -14,13 +14,13 @@ export const site = {
 export type NavItem = { label: string; href: string };
 
 export const nav: NavItem[] = [
-  { label: "Главная", href: "#home" },
-  { label: "Где купить", href: "#buy" },
-  { label: "Экосистема", href: "#ecosystem" },
-  { label: "Записи", href: "#notes" },
-  { label: "Отзывы", href: "#reviews" },
-  { label: "О проекте", href: "#about" },
-  { label: "Контакты", href: "#contacts" },
+  { label: "Главная", href: "/#home" },
+  { label: "Где купить", href: "/#buy" },
+  { label: "Экосистема", href: "/#ecosystem" },
+  { label: "Записи", href: "/#notes" },
+  { label: "Отзывы", href: "/#reviews" },
+  { label: "О проекте", href: "/#about" },
+  { label: "Контакты", href: "/#contacts" },
 ];
 
 export type Advantage = { title: string; description: string };
