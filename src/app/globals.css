@@ -198,21 +198,27 @@
     pointer-events: none;
   }
 
-  /* Лёгкий случайный наклон — будто листки разбросали по столу. */
+  /* Лёгкий случайный наклон — будто листки разбросали по столу.
+     Угол вынесен в --rot, чтобы при ховере не менялся: иначе курсор
+     соскальзывает с поворачивающегося края и карточка мигает (особенно
+     в masonry с CSS columns). */
   .paper-tilt {
+    --rot: 0deg;
+    transform: rotate(var(--rot)) translateY(0);
     transition: transform 280ms ease, box-shadow 280ms ease;
+    will-change: transform;
   }
   .paper-tilt:nth-child(3n + 1) {
-    transform: rotate(-0.7deg);
+    --rot: -0.7deg;
   }
   .paper-tilt:nth-child(3n + 2) {
-    transform: rotate(0.6deg);
+    --rot: 0.6deg;
   }
   .paper-tilt:nth-child(3n + 3) {
-    transform: rotate(-0.3deg);
+    --rot: -0.3deg;
   }
   .paper-tilt:hover {
-    transform: rotate(0deg) translateY(-3px);
+    transform: rotate(var(--rot)) translateY(-3px);
   }
 
   /* Маркер-выделитель: жёлтая полоса по нижним ~45% строки. */
