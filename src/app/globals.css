@@ -231,6 +231,26 @@
     padding: 0 0.12em;
     border-radius: 2px;
   }
+
+  /* Маркер на ховере: полоса «рисуется» слева направо как от пера. */
+  .nav-marker {
+    background-image: linear-gradient(
+      transparent 50%,
+      oklch(0.94 0.18 95 / 0.7) 50%,
+      oklch(0.94 0.18 95 / 0.7) 88%,
+      transparent 88%
+    );
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 0 100%;
+    transition: background-size 240ms ease, color 240ms ease;
+    border-radius: 2px;
+  }
+  .nav-marker:hover,
+  .nav-marker:focus-visible {
+    background-size: 100% 100%;
+    color: var(--foreground);
+  }
 }
 
 /* Стиль для тела статьи (рендерится через dangerouslySetInnerHTML). */
