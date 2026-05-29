@@ -42,8 +42,10 @@ export function Header() {
 
       <div
         className={cn(
-          "overflow-hidden border-t border-border/60 md:hidden",
-          open ? "max-h-96" : "max-h-0 border-t-0",
+          "border-t border-border/60 md:hidden",
+          open
+            ? "max-h-[calc(100vh-4rem)] overflow-y-auto"
+            : "max-h-0 overflow-hidden border-t-0",
           "transition-[max-height] duration-300 ease-in-out",
         )}
       >
