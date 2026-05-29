@@ -34,7 +34,7 @@ export function Reviews() {
         </div>
 
         {reviews.length > 0 ? (
-          <div className="mt-12 -mx-4 flex snap-x gap-5 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
+          <div className="mt-10 -mx-4 flex snap-x items-start gap-5 overflow-x-auto px-4 pt-2 pb-10 sm:mt-12 sm:mx-0 sm:grid sm:grid-cols-2 sm:items-stretch sm:overflow-visible sm:px-0 sm:pt-0 sm:pb-0 lg:grid-cols-3">
             {reviews.map((r, i) => (
               <Card
                 key={i}
