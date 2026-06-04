@@ -90,15 +90,6 @@ export const categoryOrder = Object.keys(categoryLabels);
 export const etymology =
   "Само слово «Спироплёт» — производное от слов ==«Спираль»== и ==«Переплёт»==. Этот термин объясняет сам себя.";
 
-export type Marketplace = { name: string; href: string };
-
-// TODO: подставь реальные ссылки на карточки товара на маркетплейсах.
-export const marketplaces: Marketplace[] = [
-  { name: "Wildberries", href: "#" },
-  { name: "Ozon", href: "#" },
-  { name: "Яндекс Маркет", href: "#" },
-];
-
 export const about = {
   mission: "Популяризация в России ==спироплётной системы==.",
   invite:
