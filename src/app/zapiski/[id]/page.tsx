@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ChevronLeft } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, Store } from "lucide-react";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { getArticleById, getPublishedArticles } from "@/lib/articles";
@@ -83,6 +83,28 @@ export default async function NotePage({ params }: Params) {
               dangerouslySetInnerHTML={{ __html: note.html }}
             />
           </div>
+
+          <a
+            href="https://shop.spiroplet.ru"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group paper paper-tilt mt-10 flex flex-col items-start gap-5 rounded-2xl border border-border p-6 hover:border-foreground/40 sm:flex-row sm:items-center sm:justify-between sm:p-8"
+          >
+            <div className="flex items-center gap-4">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-border bg-foreground/5">
+                <Store className="size-6" />
+              </span>
+              <div>
+                <span className="block font-mono text-xl font-semibold tracking-tight">
+                  Изучить товар в магазине
+                </span>
+                <span className="mt-0.5 block text-sm text-muted-foreground">
+                  shop.spiroplet.ru
+                </span>
+              </div>
+            </div>
+            <ArrowUpRight className="size-5 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
+          </a>
 
           <div className="mt-12">
             <Link

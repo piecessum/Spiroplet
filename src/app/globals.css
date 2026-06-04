@@ -314,27 +314,6 @@
   height: 100%;
   border: 0;
 }
-.prose-paper .shops {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
-  margin-block: 1em;
-}
-.prose-paper .shops a {
-  display: block;
-  text-decoration: none;
-  transition: transform 200ms ease;
-}
-.prose-paper .shops a:hover {
-  transform: translateY(-2px);
-}
-.prose-paper .shops img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-}
-
 @keyframes spin-slow {
   to {
     transform: rotate(360deg);

@@ -96,10 +96,21 @@ function renderBlock(block: string) {
   return `<p>${renderInline(lines.join(" "))}</p>`;
 }
 
+// Старые статьи заканчиваются баннерами маркетплейсов и вводным заголовком.
+// На странице вместо них рендерится единый виджет магазина (см. zapiski/[id]).
+function isShopBlock(block: string) {
+  return (
+    /^<p class="shops"/.test(block) ||
+    /^#{1,6}\s+.*(магазин|маркетплейс|покупайте|изучите)/i.test(block)
+  );
+}
+
 function renderMarkdown(markdown: string) {
   return markdown
     .split(/\n{2,}/)
-    .map((block) => renderBlock(block.trim()))
+    .map((block) => block.trim())
+    .filter((block) => block && !isShopBlock(block))
+    .map(renderBlock)
     .join("\n");
 }
 
